@@ -13,6 +13,11 @@
   - secrets.yml
   roles:
   - role: hetzner-install-debain-9.11
+    vars:
+    # Disable SSH checking, it's mostly useless in this role's use case;
+    # not done automatically because of the obvious insecurity
+      ansible_ssh_extra_args:
+        -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
   
 - name: install packages
   hosts: hetzner
