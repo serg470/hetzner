@@ -1,0 +1,29 @@
+---
+#- name: reboot server into rescue image
+#  hosts: hetzner
+#  connection: local
+#  vars_files:
+#  - secrets.yml
+#  roles:
+#  - role: hetzner-boot-rescue
+
+- name: install debian 9.11 minimal
+  hosts: hetzner
+  vars_files:
+  - secrets.yml
+  roles:
+  - role: hetzner-install-debain-9.11
+  
+- name: install packages
+  hosts: hetzner
+  vars_files:
+  - secrets.yml
+  roles:
+  - role: install-packages
+
+- name: final reboot
+  hosts: hetzner
+  vars_files:
+  - secrets.yml
+  roles:
+  - role: reboot

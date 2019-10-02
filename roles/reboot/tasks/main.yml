@@ -1,0 +1,3 @@
+---
+- name: reboot server
+  shell: shutdown -r +1

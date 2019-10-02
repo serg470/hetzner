@@ -1,0 +1,5 @@
+# Connect via port 22 always
+ansible_port: 22
+
+# Recovery image ships with a modern python3 interpreter
+ansible_python_interpreter: python3
